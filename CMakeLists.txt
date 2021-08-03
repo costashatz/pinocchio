@@ -154,8 +154,8 @@ ENDIF(BUILD_WITH_OPENMP_SUPPORT)
 
 SET(BOOST_REQUIRED_COMPONENTS filesystem serialization system)
 
-SET_BOOST_DEFAULT_OPTIONS()
-EXPORT_BOOST_DEFAULT_OPTIONS()
+# SET_BOOST_DEFAULT_OPTIONS()
+# EXPORT_BOOST_DEFAULT_OPTIONS()
 ADD_PROJECT_DEPENDENCY(Boost REQUIRED COMPONENTS ${BOOST_REQUIRED_COMPONENTS})
 
 IF(BUILD_PYTHON_INTERFACE)
@@ -299,20 +299,20 @@ LIST(APPEND HEADERS
 # --- MAIN LIBRARY -------------------------------------------------------------
 ADD_SUBDIRECTORY(src)
 
-# --- BINDINGS -----------------------------------------------------------------
-ADD_SUBDIRECTORY(bindings)
+# # --- BINDINGS -----------------------------------------------------------------
+# ADD_SUBDIRECTORY(bindings)
 
-# --- EXECUTABLES --------------------------------------------------------------
-ADD_SUBDIRECTORY(utils)
+# # --- EXECUTABLES --------------------------------------------------------------
+# ADD_SUBDIRECTORY(utils)
 
-# --- UNIT TESTS ---------------------------------------------------------------
-ADD_SUBDIRECTORY(unittest)
+# # --- UNIT TESTS ---------------------------------------------------------------
+# ADD_SUBDIRECTORY(unittest)
 
-# --- CHECK EXAMPLES -----------------------------------------------------------
-ADD_SUBDIRECTORY(examples)
+# # --- CHECK EXAMPLES -----------------------------------------------------------
+# ADD_SUBDIRECTORY(examples)
 
-# --- BENCHMARKS ---------------------------------------------------------------
-ADD_SUBDIRECTORY(benchmark)
+# # --- BENCHMARKS ---------------------------------------------------------------
+# ADD_SUBDIRECTORY(benchmark)
 
 # --- PACKAGING ----------------------------------------------------------------
 MACRO(EXPORT_VARIABLE var_name var_value)
@@ -349,7 +349,7 @@ IF(BUILD_PYTHON_INTERFACE)
   SET(PACKAGE_EXTRA_MACROS "${PACKAGE_EXTRA_MACROS}\nset(PINOCCHIO_WITH_PYTHON_INTERFACE \"\")")
 ENDIF()
 
-PKG_CONFIG_APPEND_LIBS(${PROJECT_NAME})
+# PKG_CONFIG_APPEND_LIBS(${PROJECT_NAME})
 PKG_CONFIG_APPEND_BOOST_LIBS(${BOOST_REQUIRED_COMPONENTS})
 
 FOREACH(cflags ${CFLAGS_DEPENDENCIES})
@@ -357,4 +357,4 @@ FOREACH(cflags ${CFLAGS_DEPENDENCIES})
 ENDFOREACH(cflags ${CFLAGS_DEPENDENCIES})
 
 # Install catkin package.xml
-INSTALL(FILES package.xml DESTINATION share/${PROJECT_NAME})
+# INSTALL(FILES package.xml DESTINATION share/${PROJECT_NAME})
